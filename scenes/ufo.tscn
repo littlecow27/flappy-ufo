@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dilc421qn8oq6"]
+
+[ext_resource type="Script" uid="uid://bfcysicljgllj" path="res://scripts/ufo.gd" id="1_xf4xf"]
+[ext_resource type="Texture2D" uid="uid://bbpd56lnqta6q" path="res://assets/kenney_alien-ufo-pack/PNG/shipPink_manned.png" id="2_gp6nc"]
+[ext_resource type="AudioStream" uid="uid://7ndaiuv8f0b0" path="res://assets/kenney_Audio/laserSmall_000.ogg" id="3_gp6nc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg1c5"]
+size = Vector2(60, 60)
+
+[node name="UFO" type="CharacterBody2D" unique_id=928365074 groups=["player"]]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_xf4xf")
+gravity_mult = 2.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=726655287]
+shape = SubResource("RectangleShape2D_lg1c5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=809362135]
+position = Vector2(0, -1.6212463e-05)
+scale = Vector2(0.62096775, 0.62096775)
+texture = ExtResource("2_gp6nc")
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="." unique_id=153183969]
+stream = ExtResource("3_gp6nc")

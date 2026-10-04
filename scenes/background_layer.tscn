@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cs3nb4erqlu0m"]
+
+[ext_resource type="Script" uid="uid://16r3f0altdjw" path="res://scripts/background_layer.gd" id="1_hus22"]
+[ext_resource type="Texture2D" uid="uid://chpq15o2e1ee7" path="res://assets/parallax_space_scene/bkgd_0.png" id="2_p1w5t"]
+[ext_resource type="Texture2D" uid="uid://8xw012huw32h" path="res://assets/parallax_space_scene/bkgd_1.png" id="3_yngk7"]
+[ext_resource type="Texture2D" uid="uid://quguyieumaux" path="res://assets/parallax_space_scene/bkgd_2.png" id="4_5s22g"]
+[ext_resource type="Texture2D" uid="uid://bdcky0c762ugx" path="res://assets/parallax_space_scene/bkgd_3.png" id="5_v1ku2"]
+[ext_resource type="Texture2D" uid="uid://dd21k44cc1wwa" path="res://assets/parallax_space_scene/bkgd_4.png" id="6_ev146"]
+[ext_resource type="Texture2D" uid="uid://bv6df62bqrima" path="res://assets/parallax_space_scene/bkgd_5.png" id="7_pruju"]
+[ext_resource type="Texture2D" uid="uid://byep0l70fyexw" path="res://assets/parallax_space_scene/bkgd_6.png" id="8_d2ba5"]
+[ext_resource type="Texture2D" uid="uid://dywpokfsi20uy" path="res://assets/parallax_space_scene/bkgd_7.png" id="9_5ipwv"]
+
+[node name="BackgroundLayer" type="CanvasLayer" unique_id=338710122]
+layer = -1
+follow_viewport_enabled = true
+script = ExtResource("1_hus22")
+
+[node name="Black" type="Parallax2D" parent="." unique_id=1542318466]
+repeat_size = Vector2(1920, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Black" unique_id=1385741682]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 1080, 0, 1080)
+
+[node name="Background" type="Parallax2D" parent="." unique_id=651241349]
+repeat_size = Vector2(1920, 0)
+
+[node name="Bkgd0" type="Sprite2D" parent="Background" unique_id=1436009343]
+modulate = Color(1, 1, 1, 0.4392157)
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("2_p1w5t")
+
+[node name="Stars1" type="Parallax2D" parent="." unique_id=1055762816]
+repeat_size = Vector2(1920, 0)
+
+[node name="Bkgd0" type="Sprite2D" parent="Stars1" unique_id=213177566]
+modulate = Color(1, 1, 1, 0.6784314)
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("3_yngk7")
+
+[node name="Stars2" type="Parallax2D" parent="." unique_id=1353921931]
+repeat_size = Vector2(1920, 0)
+
+[node name="Bkgd0" type="Sprite2D" parent="Stars2" unique_id=1671607012]
+modulate = Color(1, 1, 1, 0.6784314)
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("4_5s22g")
+
+[node name="Stars3" type="Parallax2D" parent="." unique_id=1864862151]
+repeat_size = Vector2(1920, 0)
+
+[node name="Bkgd0" type="Sprite2D" parent="Stars3" unique_id=1690671213]
+modulate = Color(1, 1, 1, 0.6784314)
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("5_v1ku2")
+
+[node name="Stars4" type="Parallax2D" parent="." unique_id=17713184]
+repeat_size = Vector2(1920, 0)
+
+[node name="Bkgd0" type="Sprite2D" parent="Stars4" unique_id=514339594]
+modulate = Color(1, 1, 1, 0.6784314)
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("6_ev146")
+
+[node name="Stars5" type="Parallax2D" parent="." unique_id=278259637]
+repeat_size = Vector2(1920, 0)
+
+[node name="Bkgd0" type="Sprite2D" parent="Stars5" unique_id=1977826468]
+modulate = Color(1, 1, 1, 0.6784314)
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.96)
+texture = ExtResource("7_pruju")
+
+[node name="Stars6" type="Parallax2D" parent="." unique_id=2073837078]
+repeat_size = Vector2(1920, 0)
+
+[node name="Bkgd0" type="Sprite2D" parent="Stars6" unique_id=490265113]
+modulate = Color(1, 1, 1, 0.6784314)
+position = Vector2(960, 540)
+scale = Vector2(2.886, 2.886)
+texture = ExtResource("8_d2ba5")
+
+[node name="Stars7" type="Parallax2D" parent="." unique_id=1489189167]
+repeat_size = Vector2(1920, 0)
+
+[node name="Bkgd0" type="Sprite2D" parent="Stars7" unique_id=1372261013]
+modulate = Color(1, 1, 1, 0.6784314)
+position = Vector2(960, 540)
+scale = Vector2(2.6, 2.6)
+texture = ExtResource("9_5ipwv")

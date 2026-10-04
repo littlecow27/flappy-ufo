@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cpnigf5l6hagp"]
+
+[ext_resource type="Script" uid="uid://dhn73wj48g1nm" path="res://scripts/game.gd" id="1_kk2rg"]
+[ext_resource type="PackedScene" uid="uid://cpu88kec1ggg4" path="res://scenes/pipe.tscn" id="2_b5spy"]
+[ext_resource type="AudioStream" uid="uid://pkeh4td8h1ao" path="res://assets/FreeSound/692923__dustywind__crunchy-explosion.wav" id="3_utbpp"]
+[ext_resource type="AudioStream" uid="uid://drucaj7t77jsa" path="res://assets/FreeSound/471937__fupicat__videogame-menu-select.wav" id="4_mw25s"]
+[ext_resource type="PackedScene" uid="uid://cs3nb4erqlu0m" path="res://scenes/background_layer.tscn" id="5_tcjrq"]
+[ext_resource type="PackedScene" uid="uid://b5255qjex6lf0" path="res://scenes/interface_layer.tscn" id="6_rvs2r"]
+[ext_resource type="PackedScene" uid="uid://dilc421qn8oq6" path="res://scenes/ufo.tscn" id="7_tqxxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fiftr"]
+size = Vector2(400, 45)
+
+[node name="GameScene" type="Node2D" unique_id=633697702]
+script = ExtResource("1_kk2rg")
+pipe_scene = ExtResource("2_b5spy")
+
+[node name="Audio" type="Node" parent="." unique_id=247291277]
+
+[node name="DeathAudio" type="AudioStreamPlayer" parent="Audio" unique_id=1543363980]
+stream = ExtResource("3_utbpp")
+
+[node name="ScoreAudio" type="AudioStreamPlayer" parent="Audio" unique_id=2110484706]
+stream = ExtResource("4_mw25s")
+volume_db = 5.255
+
+[node name="BackgroundLayer" parent="." unique_id=338710122 instance=ExtResource("5_tcjrq")]
+
+[node name="InterfaceLayer" parent="." unique_id=1676931970 instance=ExtResource("6_rvs2r")]
+
+[node name="UFO" parent="." unique_id=928365074 instance=ExtResource("7_tqxxy")]
+position = Vector2(200, 540)
+
+[node name="PipeTimer" type="Timer" parent="." unique_id=2046817703]
+process_callback = 0
+wait_time = 1.25
+autostart = true
+
+[node name="BottomBound" type="Area2D" parent="." unique_id=1348449531]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBound" unique_id=1618840865]
+position = Vector2(200, 1120)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_fiftr")
+
+[connection signal="paused_game" from="." to="BackgroundLayer" method="_on_game_scene_paused_game"]
+[connection signal="paused_game" from="." to="UFO" method="_on_game_scene_paused_game"]
+[connection signal="started_game" from="." to="BackgroundLayer" method="_on_game_scene_started_game"]
+[connection signal="started_game" from="." to="UFO" method="_on_game_scene_started_game"]
+[connection signal="unpaused_game" from="." to="BackgroundLayer" method="_on_game_scene_unpaused_game"]
+[connection signal="unpaused_game" from="." to="UFO" method="_on_game_scene_unpaused_game"]
+[connection signal="restart_requested" from="InterfaceLayer" to="." method="_on_interface_layer_restart_requested"]
+[connection signal="died" from="UFO" to="." method="_on_ufo_died"]
+[connection signal="died" from="UFO" to="BackgroundLayer" method="_on_ufo_died"]
+[connection signal="scored" from="UFO" to="." method="_on_ufo_scored"]
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="body_entered" from="BottomBound" to="UFO" method="_on_bottom_bound_body_entered"]

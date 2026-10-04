@@ -1,0 +1,6 @@
+UFO Sprite: https://kenney.nl/assets/alien-ufo-pack
+Pipes: https://kenney.nl/assets/platformer-pack-industrial
+Space Background: https://opengameart.org/node/76609
+Jump Sound: https://kenney.nl/assets/sci-fi-sounds
+Score Sound: https://freesound.org/people/Fupicat/sounds/471937/
+Death Sound: https://freesound.org/people/DustyWind/sounds/692923/

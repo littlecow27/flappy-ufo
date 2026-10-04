@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cpnigf5l6hagp"]
+
+[ext_resource type="Script" uid="uid://dhn73wj48g1nm" path="res://Scripts/GameScript.gd" id="1_6h5vk"]
+[ext_resource type="Script" uid="uid://bfcysicljgllj" path="res://Scripts/BirdScript.gd" id="1_b6fju"]
+[ext_resource type="PackedScene" uid="uid://cpu88kec1ggg4" path="res://Scenes/pipe.tscn" id="3_fiftr"]
+[ext_resource type="Texture2D" uid="uid://bbpd56lnqta6q" path="res://Assets/kenney_alien-ufo-pack/PNG/shipPink_manned.png" id="4_fiftr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg1c5"]
+size = Vector2(60, 60)
+
+[node name="GameScene" type="Node2D" unique_id=633697702]
+script = ExtResource("1_6h5vk")
+pipeScene = ExtResource("3_fiftr")
+
+[node name="Bird" type="CharacterBody2D" parent="." unique_id=1711642658]
+position = Vector2(200, 540)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_b6fju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird" unique_id=2050431984]
+shape = SubResource("RectangleShape2D_lg1c5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bird" unique_id=1240431517]
+position = Vector2(0, -1.6212463e-05)
+scale = Vector2(0.62096775, 0.62096775)
+texture = ExtResource("4_fiftr")
+
+[node name="PipeTimer" type="Timer" parent="." unique_id=2046817703]
+wait_time = 2.0
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1459468729]
+position = Vector2(1197, 300)
+
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
