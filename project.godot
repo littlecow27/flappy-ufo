@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="flappy-bird"
+config/name="flappy-ufo"
+config/description="First game made for the 20 games challenge!"
 run/main_scene="res://scenes/game_scene.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
